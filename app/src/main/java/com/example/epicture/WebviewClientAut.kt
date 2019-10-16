@@ -16,21 +16,18 @@ class WebViewClientAuth (private val activity: MainActivity) : WebViewClient() {
     override fun onPageFinished(view: WebView?, url: String?) {
         super.onPageFinished(view, url)
 
-        if (url!!.contains("empire")) {
+        if (url!!.contains("access_token")) {
 
-            val parameters = try {
-                UrlToken.getData(url)
-            } catch (e: Exception) {
-                null
-            }
+            val parameters = UrlToken.getData(url)
 
+            println(parameters)
             if (parameters == null) {
                 // reload imgur page until user logs in successfully
 //                val authWebView = activity.findViewById<WebView>(R.id.authWebView)
 //                val authUrl = activity.OAUTH_LINK
 
 //                authWebView.loadUrl(authUrl)
-                activity.webview.loadUrl((url))
+                activity.webview.loadUrl(("https://api.imgur.com/oauth2/authorize?client_id=f424c0c044998c8&response_type=token"))
                 return
             }
 

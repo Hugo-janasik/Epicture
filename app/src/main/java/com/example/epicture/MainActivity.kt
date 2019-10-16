@@ -16,6 +16,7 @@ import android.content.Intent
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.webkit.WebView
 import android.webkit.WebViewClient
 
 import com.example.epicture.home
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         webview.settings.javaScriptEnabled = true
         webview.webViewClient = WebViewClientAuth(this)
         webview.loadUrl((url))
+        Test.text = webview.url
 //        if (webview.url == "https://www.getpostman.com/oauth2/callback")
 //            Intent(this, home::class.java)
 //        webview.webViewClient = WebView

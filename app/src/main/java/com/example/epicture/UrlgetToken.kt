@@ -6,14 +6,20 @@ import kotlin.collections.HashMap
 class UrlToken {
     companion object {
         fun parseUrl(param: String): Map<String, String> {
-            val values = param.split("&")
+            val values = param.split("&", "#")
+            println("LAAA")
+            println(values)
             val store = HashMap<String, String>()
 
             for (pair in values) {
-                val splited = pair.split("=")
-                store.put(splited[0], splited[1])
+                if (pair.contains(("="))) {
+                    val splited = pair.split("=")
+                    store.put(splited[0], splited[1])
+                }
             }
 
+            println("ICIIIII")
+            println(store)
             return store
         }
 
