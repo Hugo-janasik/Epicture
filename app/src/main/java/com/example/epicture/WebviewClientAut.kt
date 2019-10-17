@@ -20,7 +20,6 @@ class WebViewClientAuth (private val activity: MainActivity) : WebViewClient() {
 
             val parameters = UrlToken.getData(url)
 
-            println(parameters)
             if (parameters == null) {
                 // reload imgur page until user logs in successfully
 //                val authWebView = activity.findViewById<WebView>(R.id.authWebView)

@@ -7,8 +7,6 @@ class UrlToken {
     companion object {
         fun parseUrl(param: String): Map<String, String> {
             val values = param.split("&", "#")
-            println("LAAA")
-            println(values)
             val store = HashMap<String, String>()
 
             for (pair in values) {
@@ -18,8 +16,6 @@ class UrlToken {
                 }
             }
 
-            println("ICIIIII")
-            println(store)
             return store
         }
 

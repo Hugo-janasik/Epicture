@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         webview.settings.javaScriptEnabled = true
         webview.webViewClient = WebViewClientAuth(this)
         webview.loadUrl((url))
-        Test.text = webview.url
+
 //        if (webview.url == "https://www.getpostman.com/oauth2/callback")
 //            Intent(this, home::class.java)
 //        webview.webViewClient = WebView
