@@ -28,29 +28,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val queue = Volley.newRequestQueue(this)
-
-        val url = "https://api.imgur.com/oauth2/authorize?client_id=f424c0c044998c8&response_type=token"
+        val url =
+            "https://api.imgur.com/oauth2/authorize?client_id=f424c0c044998c8&response_type=token"
 
 
         webview.settings.javaScriptEnabled = true
         webview.webViewClient = WebViewClientAuth(this)
         webview.loadUrl((url))
-        Test.text = webview.url
-//        if (webview.url == "https://www.getpostman.com/oauth2/callback")
-//            Intent(this, home::class.java)
-//        webview.webViewClient = WebView
-        // Request a string response from the provided URL.
-/*        val jsonObjectRequest = StringRequest(Request.Method.GET, url,
-            Response.Listener { response ->
-                // Display the first 500 characters of the response string.
-                Test.text = "Response is: ${response}"
-            },
-            Response.ErrorListener { error -> Test.text = error.message })
-        // Add the request to the RequestQueue.
-        queue.add(jsonObjectRequest)*/
     }
-
-
-
 }
+
