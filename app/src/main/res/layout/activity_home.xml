@@ -70,13 +70,13 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/navshearch"
+            android:id="@+id/navsearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight=".25"
             android:text="Search"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/navhome" />
+            app:layout_constraintStart_toEndOf="@+id/navsearch" />
 
         <Button
             android:id="@+id/navupload"
@@ -85,7 +85,7 @@
             android:layout_weight=".25"
             android:text="Upload"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/navshearch" />
+            app:layout_constraintStart_toEndOf="@+id/navupload" />
 
         <Button
             android:id="@+id/navfav"
@@ -94,7 +94,7 @@
             android:layout_weight=".25"
             android:text="Favorite"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/navupload" />
+            app:layout_constraintStart_toEndOf="@+id/navfav" />
 
     </LinearLayout>
 
