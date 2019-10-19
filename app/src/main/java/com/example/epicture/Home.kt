@@ -84,13 +84,13 @@ class Home : AppCompatActivity() {
                             .into(photo3)
                     }
                 }
-                navshearch.setOnClickListener {
+                navsearch.setOnClickListener {
                     switchActivity(Search::class.java)
                 }
-                navshearch.setOnClickListener {
+                navupload.setOnClickListener {
                     switchActivity(Upload::class.java)
                 }
-                navshearch.setOnClickListener {
+                navfav.setOnClickListener {
                     switchActivity(Favorite::class.java)
                 }
             },
