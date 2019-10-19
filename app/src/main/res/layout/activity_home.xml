@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#2F3035"
     android:paddingTop="?attr/actionBarSize"
-    tools:context=".MainActivity">
+    tools:context=".Home">
 
 
     <ImageView

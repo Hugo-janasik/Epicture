@@ -30,12 +30,11 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val url = "https://api.imgur.com/3/account/me/images&client_id=f424c0c044998c8&access_token=${getIntent().getStringExtra("accessToken")}"
-//            "https://api.imgur.com/3/gallery/hot/viral/day/1?showViral=true&mature=false&client_id=f424c0c044998c8"
+        val url = "https://api.imgur.com/3/account/me/images"
         val queue = Volley.newRequestQueue(this)
 
         // Request a string response from the provided URL.
-        val jsonObjectRequest = JsonObjectRequest(
+        val jsonObjectRequest = object: JsonObjectRequest(
             Request.Method.GET, url, null,
             Response.Listener { response ->
                 var images: JSONArray = response.getJSONArray("data")
@@ -43,32 +42,29 @@ class Home : AppCompatActivity() {
 
                 for (i in 0 until images.length()) {
                     val item = images.getJSONObject((i))
-                    if (item.getBoolean("is_album")) {
-                        var photo: Photo = Photo(item.getString("cover"), item.getString("title"))
-                        photos.add(photo)
-                    } else {
                         var photo: Photo = Photo(item.getString("id"), item.getString("title"))
                         photos.add(photo)
-                    }
                 }
                 var iterator: Int = 0
-                Picasso.with(this).load("https://i.imgur.com/" + photos[iterator].id + ".jpg")
-                    .into(photo1)
-                Picasso.with(this).load("https://i.imgur.com/" + photos[iterator + 1].id + ".jpg")
-                    .into(photo2)
-                Picasso.with(this).load("https://i.imgur.com/" + photos[iterator + 2].id + ".jpg")
-                    .into(photo3)
+                if (photos.size > 0)
+                    Picasso.with(this).load("https://i.imgur.com/" + photos[iterator].id + ".jpg").into(photo1)
+                if (photos.size > 1)
+                    Picasso.with(this).load("https://i.imgur.com/" + photos[iterator + 1].id + ".jpg").into(photo2)
+                if (photos.size > 2)
+                    Picasso.with(this).load("https://i.imgur.com/" + photos[iterator + 2].id + ".jpg").into(photo3)
 
                 next.setOnClickListener {
-                    iterator += 3
-                    Picasso.with(this).load("https://i.imgur.com/" + photos[iterator].id + ".jpg")
-                        .into(photo1)
-                    Picasso.with(this)
-                        .load("https://i.imgur.com/" + photos[iterator + 1].id + ".jpg")
-                        .into(photo2)
-                    Picasso.with(this)
-                        .load("https://i.imgur.com/" + photos[iterator + 2].id + ".jpg")
-                        .into(photo3)
+                    if (photos.size - iterator > 3) {
+                        iterator += 3
+                        Picasso.with(this)
+                            .load("https://i.imgur.com/" + photos[iterator].id + ".jpg").into(photo1)
+                        Picasso.with(this)
+                            .load("https://i.imgur.com/" + photos[iterator + 1].id + ".jpg")
+                            .into(photo2)
+                        Picasso.with(this)
+                            .load("https://i.imgur.com/" + photos[iterator + 2].id + ".jpg")
+                            .into(photo3)
+                    }
                 }
                 prev.setOnClickListener {
                     if (iterator >= 3) {
@@ -84,17 +80,24 @@ class Home : AppCompatActivity() {
                             .into(photo3)
                     }
                 }
-                navsearch.setOnClickListener {
-                    switchActivity(Search::class.java)
-                }
-                navupload.setOnClickListener {
-                    switchActivity(Upload::class.java)
-                }
-                navfav.setOnClickListener {
-                    switchActivity(Favorite::class.java)
-                }
             },
-            Response.ErrorListener { error -> println(error.message) })
+            Response.ErrorListener { error -> println("ERROR ${error.message}") })
+            {
+                override fun getHeaders(): MutableMap<String, String> {
+                    val headers = HashMap<String, String>()
+                    headers["Authorization"] = "Bearer ${getIntent().getStringExtra("accessToken")}"
+                    return headers
+            }
+        }
+        navsearch.setOnClickListener {
+            switchActivity(Search::class.java)
+        }
+        navupload.setOnClickListener {
+            switchActivity(Upload::class.java)
+        }
+        navfav.setOnClickListener {
+            switchActivity(Favorite::class.java)
+        }
         queue.add(jsonObjectRequest)
     }
 }
