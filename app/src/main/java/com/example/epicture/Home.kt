@@ -30,8 +30,8 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val url =
-            "https://api.imgur.com/3/gallery/hot/viral/day/1?showViral=true&mature=false&client_id=f424c0c044998c8"
+        val url = "https://api.imgur.com/3/account/me/images&client_id=f424c0c044998c8&access_token=${getIntent().getStringExtra("accessToken")}"
+//            "https://api.imgur.com/3/gallery/hot/viral/day/1?showViral=true&mature=false&client_id=f424c0c044998c8"
         val queue = Volley.newRequestQueue(this)
 
         // Request a string response from the provided URL.
