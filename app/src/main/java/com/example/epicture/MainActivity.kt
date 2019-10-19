@@ -16,10 +16,12 @@ import android.content.Intent
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.view.Menu
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.fragment.app.Fragment
 
-import com.example.epicture.home
+import com.example.epicture.Home
 import com.example.epicture.WebViewClientAuth
 
 class MainActivity : AppCompatActivity() {
@@ -28,8 +30,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val url =
-            "https://api.imgur.com/oauth2/authorize?client_id=f424c0c044998c8&response_type=token"
+        val url = "https://api.imgur.com/oauth2/authorize?client_id=f424c0c044998c8&response_type=token"
 
 
         webview.settings.javaScriptEnabled = true
