@@ -8,12 +8,10 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_home.*
 import org.json.JSONArray
-import androidx.recyclerview.widget.LinearLayoutManager
 import java.util.*
 import android.os.Bundle
 import com.squareup.picasso.Picasso
 
-private lateinit var linearLayoutManager: LinearLayoutManager
 class Home : AppCompatActivity() {
 
     fun switchActivity(act: Class<*>?) {
@@ -33,7 +31,6 @@ class Home : AppCompatActivity() {
         val url = "https://api.imgur.com/3/account/me/images"
         val queue = Volley.newRequestQueue(this)
 
-        // Request a string response from the provided URL.
         val jsonObjectRequest = object: JsonObjectRequest(
             Request.Method.GET, url, null,
             Response.Listener { response ->
@@ -87,8 +84,9 @@ class Home : AppCompatActivity() {
                     val headers = HashMap<String, String>()
                     headers["Authorization"] = "Bearer ${getIntent().getStringExtra("accessToken")}"
                     return headers
+                }
             }
-        }
+
         navsearch.setOnClickListener {
             switchActivity(Search::class.java)
         }

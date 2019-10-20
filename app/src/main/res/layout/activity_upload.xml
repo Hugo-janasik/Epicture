@@ -12,9 +12,14 @@
 
     <ImageView
         android:id="@+id/image_view"
-        android:scaleType="centerCrop"
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:layout_marginTop="108dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_pick_btn"
         tools:ignore="MissingConstraints" />
 
     <Button

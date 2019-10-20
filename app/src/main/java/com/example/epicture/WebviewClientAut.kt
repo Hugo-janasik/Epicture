@@ -1,14 +1,10 @@
 package com.example.epicture
 
-import android.content.Context
 import android.content.Intent
 import android.webkit.WebView
 import android.webkit.WebViewClient
 
-import com.example.epicture.Home
 import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.Exception
-
 
 class WebViewClientAuth (private val activity: MainActivity) : WebViewClient() {
 

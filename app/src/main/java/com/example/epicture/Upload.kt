@@ -9,26 +9,17 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
-import android.widget.Toast.makeText
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_upload.*
-import android.R.attr.bitmap
-import android.app.DownloadManager
-import android.app.VoiceInteractor
 import kotlinx.android.synthetic.main.activity_upload.navfav
 import kotlinx.android.synthetic.main.activity_upload.navhome
 
 import kotlinx.android.synthetic.main.activity_upload.navsearch
-import java.net.HttpURLConnection
-import java.net.URL
-import java.net.URLEncoder
 import java.util.*
-import kotlin.text.StringBuilder
 
 
 class Upload : AppCompatActivity() {

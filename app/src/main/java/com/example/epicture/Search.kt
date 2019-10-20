@@ -1,7 +1,5 @@
 package com.example.epicture
 
-import android.app.SearchManager
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -14,7 +12,6 @@ import com.android.volley.toolbox.Volley
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.activity_search.navfav
-import kotlinx.android.synthetic.main.activity_search.navsearch
 import kotlinx.android.synthetic.main.activity_search.navupload
 import kotlinx.android.synthetic.main.activity_search.next
 import kotlinx.android.synthetic.main.activity_search.photo1
